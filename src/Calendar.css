@@ -1,0 +1,70 @@
+ body {
+  font-family: Arial, sans-serif;
+}
+
+.calendar-wrapper {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+}
+
+.calendar-box {
+  border: 2px solid purple;
+  padding: 20px;
+  width: 380px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.calendar-header select,
+.calendar-header input {
+  padding: 6px;
+  font-size: 14px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day-name {
+  text-align: center;
+  font-weight: bold;
+  color: purple;
+}
+
+.date-btn {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.date-btn:hover {
+  background-color: #d9c3e8;
+}
+
+.date-btn.active {
+  background-color: purple;
+  color: white;
+}
+
+.notes-box {
+  border: 2px solid purple;
+  padding: 20px;
+  width: 300px;
+}
+
+.notes-box textarea {
+  width: 100%;
+  height: 260px;
+  padding: 10px;
+  font-size: 14px;
+}
