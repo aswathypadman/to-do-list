@@ -12,11 +12,11 @@ const Calendar = () => {
     "July", "August", "September", "October", "November", "December"
   ];
 
-  // 🔑 Correct calendar logic
+  // Correct calendar logic
   const firstDay = new Date(year, month, 1).getDay();
   const totalDays = new Date(year, month + 1, 0).getDate();
 
-  // 🔑 Reset selected date when month/year changes
+  // Reset selected date when month/year changes
   useEffect(() => {
     setSelectedDate(null);
   }, [month, year]);
