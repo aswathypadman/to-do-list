@@ -1,0 +1,28 @@
+ .task-card p {
+  margin: 0 0 8px 0;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.start-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.remove-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
