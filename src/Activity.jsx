@@ -1,12 +1,10 @@
  import React,{useState} from 'react'
+ import Card from 'react-bootstrap/Card';
  import "./Activity.css";
+ import "./calendar.css";
  
  const Activity = () => {
-     const [tasks, setTasks] = useState([
-    "Review wireframes",
-    "Client feedback review",
-    "Finalize project proposal"
-  ]);
+     const [tasks, setTasks] = useState([]);
   const [showInput, setShowInput] = useState(false);
   const [newTask, setNewTask] = useState("");
 
@@ -26,7 +24,7 @@
   };
    return (
       
-      <div className="column">
+      <div >
       {/* Header */}
       <div className="column-header">
         
@@ -34,20 +32,25 @@
       </div>
 
       {/* Task list */}
-      <div className="task-list">
+      
+      
+    
+      <div className='task-list'  >
         {tasks.map((task, index) => (
-          <div className="task-card" key={index}>
+          <Card             
+            key={index}
+            className="task-card"
+            style={{ width: "18rem" }}   >
+      <Card.Body style={{padding: '12px 16px' }} > 
+        
             <p>{task}</p>
-             <div className="task-actions">
+       <div className="task-actions">
               <button className="start-btn">Start</button>
-              <button
-                className="remove-btn"
-                onClick={() => removeTask(index)}
-              >
-                Remove
+         <button className="remove-btn" onClick={() => removeTask(index)}> Remove
               </button>
-            </div>
-          </div>
+              </div>
+        </Card.Body>
+    </Card>
         ))}
       </div>
 
