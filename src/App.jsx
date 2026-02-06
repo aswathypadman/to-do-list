@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Calendar from './Calendar'
 import Activity from './Activity'
+import TaskBoard from './Taskboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,8 +12,9 @@ function App() {
   return (
     <>
       <div>
-        {/* <Calendar/> */}
-        <Activity/>
+         <Calendar/>
+        {/* <Activity/>  */}
+        <TaskBoard/>
          
       </div>
        

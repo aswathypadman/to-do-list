@@ -75,10 +75,10 @@ const Calendar = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="notes-box">
+      {/* <div className="notes-box">
         <h3>Important Notes</h3>
         <textarea placeholder="Write notes here..." />
-      </div>
+      </div> */}
 
     </div>
   );

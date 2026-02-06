@@ -1,0 +1,83 @@
+ .board {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #3b2b73, #5b2b82);
+  min-height: 100vh;
+}
+
+.column {
+  flex: 1;
+  background: #f4f4f4;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.column h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 8px;
+  background: #4c6ef5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.task-card {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.task-card p {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+button.start {
+  background: #37b24d;
+  color: #fff;
+}
+
+button.remove {
+  background: #f03e3e;
+  color: #fff;
+}
+
+button.pause {
+  background: #fab005;
+}
+
+button.complete {
+  background: #20c997;
+  color: #fff;
+}
+
+.btn-group button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
