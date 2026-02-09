@@ -1,9 +1,9 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import "./Activity.css";
 import "./calendar.css";
 
-const TaskBoard = () => {
+const Ongoing = () => {
   const [tasks, setTasks] = useState([]);
   const [ongoing, setOngoing] = useState([]);
 
@@ -132,4 +132,4 @@ const TaskBoard = () => {
   );
 };
 
-export default TaskBoard;
+export default Ongoing;

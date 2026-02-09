@@ -5,6 +5,7 @@ import './App.css'
 import Calendar from './Calendar'
 import Activity from './Activity'
 import TaskBoard from './Taskboard'
+import Ongoing from './Ongoing'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,9 +13,10 @@ function App() {
   return (
     <>
       <div>
-         <Calendar/>
+         {/* <Calendar/> */}
         {/* <Activity/>  */}
-        <TaskBoard/>
+        {/* <TaskBoard/> */}
+        <Ongoing/>
          
       </div>
        

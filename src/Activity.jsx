@@ -15,7 +15,7 @@
     setNewTask("");
     setShowInput(false);
   };
-  // 🔴 Remove task logic
+  //  Remove task logic
   const removeTask = (indexToRemove) => {
     const updatedTasks = tasks.filter(
       (_, index) => index !== indexToRemove
@@ -32,10 +32,7 @@
       </div>
 
       {/* Task list */}
-      
-      
-    
-      <div className='task-list'  >
+         <div className='task-list'  >
         {tasks.map((task, index) => (
           <Card             
             key={index}
