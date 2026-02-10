@@ -3,64 +3,60 @@ import Card from "react-bootstrap/Card";
 import "./Activity.css";
 import "./calendar.css";
 
-const Ongoing = () => {
+const Completed = () => {
   const [tasks, setTasks] = useState([]);
   const [ongoing, setOngoing] = useState([]);
+  const [completed, setCompleted] = useState([]);
 
   const [showInput, setShowInput] = useState(false);
   const [newTask, setNewTask] = useState("");
 
-  // ✅ Save new task
+  // Save new task
   const saveTask = () => {
     if (newTask.trim() === "") return;
-
     setTasks([...tasks, newTask]);
     setNewTask("");
     setShowInput(false);
   };
 
-  // ❌ Remove task from todo
-  const removeTask = (indexToRemove) => {
-    setTasks(tasks.filter((_, i) => i !== indexToRemove));
+  // Remove from task list
+  const removeTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
   };
 
   // Start task → move to ongoing
   const startTask = (index) => {
     const taskText = tasks[index];
-
     setOngoing([...ongoing, { text: taskText, paused: false }]);
     removeTask(index);
   };
 
-  //  Pause / Resume
+  // Pause / Resume
   const togglePause = (index) => {
     const updated = [...ongoing];
     updated[index].paused = !updated[index].paused;
     setOngoing(updated);
   };
 
-  // ✅ Complete task
+  // Complete → move to completed
   const completeTask = (index) => {
+    const taskText = ongoing[index].text;
+    setCompleted([...completed, { text: taskText }]);
     setOngoing(ongoing.filter((_, i) => i !== index));
   };
 
   return (
     <div style={{ display: "flex", gap: "40px" }}>
-      {/* ================= TASK LIST ================= */}
+      {/* ========== TASKS ========== */}
       <div>
         <h5>Tasks ({tasks.length})</h5>
-
         <div className="task-list">
           {tasks.map((task, index) => (
             <Card key={index} className="task-card" style={{ width: "18rem" }}>
               <Card.Body>
                 <p>{task}</p>
-
                 <div className="task-actions">
-                  <button
-                    className="start-btn"
-                    onClick={() => startTask(index)}
-                  >
+                  <button className="start-btn" onClick={() => startTask(index)}>
                     Start
                   </button>
                   <button
@@ -91,22 +87,16 @@ const Ongoing = () => {
         )}
       </div>
 
-      {/* ================= ONGOING LIST ================= */}
+      {/* ========== ONGOING ========== */}
       <div>
         <h5>Ongoing ({ongoing.length})</h5>
-
         <div className="task-list">
           {ongoing.map((task, index) => (
             <Card key={index} className="task-card" style={{ width: "18rem" }}>
               <Card.Body>
-                <p
-                  style={{
-                    opacity: task.paused ? 0.5 : 1,
-                  }}
-                >
+                <p style={{ opacity: task.paused ? 0.5 : 1 }}>
                   {task.text}
                 </p>
-
                 <div className="task-actions">
                   <button
                     className="start-btn"
@@ -115,7 +105,6 @@ const Ongoing = () => {
                   >
                     {task.paused ? "Resume" : "Pause"}
                   </button>
-
                   <button
                     className="remove-btn"
                     onClick={() => completeTask(index)}
@@ -128,8 +117,24 @@ const Ongoing = () => {
           ))}
         </div>
       </div>
+
+      {/* ========== COMPLETED ========== */}
+      <div>
+        <h5>Completed ({completed.length})</h5>
+        <div className="task-list">
+          {completed.map((task, index) => (
+            <Card key={index} className="task-card" style={{ width: "18rem" }}>
+              <Card.Body>
+                <p style={{ textDecoration: "line-through", opacity: 0.7 }}>
+                  {task.text}
+                </p>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Ongoing;
+export default Completed ;

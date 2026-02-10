@@ -6,6 +6,7 @@ import Calendar from './Calendar'
 import Activity from './Activity'
 import TaskBoard from './Taskboard'
 import Ongoing from './Ongoing'
+import Completed from './Completed'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,8 @@ function App() {
          {/* <Calendar/> */}
         {/* <Activity/>  */}
         {/* <TaskBoard/> */}
-        <Ongoing/>
+        {/* <Ongoing/> */}
+        <Completed/>
          
       </div>
        
