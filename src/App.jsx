@@ -18,7 +18,8 @@ function App() {
         {/* <Activity/>  */}
         {/* <TaskBoard/> */}
         {/* <Ongoing/> */}
-        <Completed/>
+        {/* <Completed/> */}
+        <TaskBoard/>
          
       </div>
        
