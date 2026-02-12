@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <div>
-         {/* <Calendar/> */}
+         <Calendar/>
         {/* <Activity/>  */}
         {/* <TaskBoard/> */}
         {/* <Ongoing/> */}

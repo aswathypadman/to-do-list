@@ -1,8 +1,7 @@
  import React, { useState } from "react";
- 
-import OngoingColumn from "./OngoingColumn";
-import CompletedColumn from "./CompletedColumn";
 import Activity from "./Activity";
+import Ongoing from "./Ongoing";
+import Completed from "./Completed";
 
 const TaskBoard = () => {
   const [tasks, setTasks] = useState([]);
@@ -17,13 +16,13 @@ const TaskBoard = () => {
         setOngoing={setOngoing}
       />
 
-      {/* <OngoingColumn
+      <Ongoing
         ongoing={ongoing}
         setOngoing={setOngoing}
         setCompleted={setCompleted}
-      /> */}
+      />
 
-      {/* <CompletedColumn completed={completed} /> */}
+      <Completed completed={completed} />
     </div>
   );
 };

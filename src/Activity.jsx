@@ -19,6 +19,14 @@ const Activity = ({ tasks, setTasks, setOngoing }) => {
     
   };
 
+  const removeTask =(indexToRemove) => {
+    const updatedTask =tasks.filter(
+      (_,index) => index !== indexToRemove
+
+    );
+    setTasks(updatedTask);
+  };
+
   return (
     <div>
       <h5>Tasks ({tasks.length})</h5>
@@ -30,6 +38,12 @@ const Activity = ({ tasks, setTasks, setOngoing }) => {
             <div className="task-actions">
               <button className="start-btn" onClick={() => startTask(index)}>
                 Start
+              </button>
+              <button
+                className="remove-btn"
+                onClick={() => removeTask(index)}
+              >
+                Remove
               </button>
             </div>
           </TaskCard>
