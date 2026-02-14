@@ -1,7 +1,7 @@
  import React, { useState } from "react";
 import TaskCard from "./TaskCard";
 
-const Activity = ({ tasks, setTasks, setOngoing }) => {
+const Activity = ({ tasks, setTasks, setOngoing,date }) => {
   const [newTask, setNewTask] = useState("");
   const [showInput, setShowInput] = useState(false);
 
@@ -29,7 +29,7 @@ const Activity = ({ tasks, setTasks, setOngoing }) => {
 
   return (
     <div>
-      <h5>Tasks ({tasks.length})</h5>
+      <h5>Tasks({tasks.length})</h5>
 
       <div className="task-list">
         {tasks.map((task, index) => (

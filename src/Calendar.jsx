@@ -1,10 +1,17 @@
  import React, { useState, useEffect } from "react";
 import "./Calendar.css";
+import { useNavigate } from "react-router-dom";
 
 const Calendar = () => {
   const [month, setMonth] = useState(1); // February
   const [year, setYear] = useState(2026);
   const [selectedDate, setSelectedDate] = useState(null);
+  const navigate = useNavigate()
+  const nav=()=>{
+    navigate("/TaskBoard");
+
+  }
+  
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const months = [
@@ -57,20 +64,22 @@ const Calendar = () => {
           ))}
 
           {/* Dates */}
-          {[...Array(totalDays)].map((_, i) => {
-            const date = i + 1;
-            return (
-              <button
-                key={date}
-                className={`date-btn ${
-                  selectedDate === date ? "active" : ""
-                }`}
-                onClick={() => setSelectedDate(date)}
-              >
-                {date}
-              </button>
-            );
-          })}
+           {[...Array(totalDays)].map((_, i) => {
+  const date = i + 1;
+  const formattedDate = `${year}-${month + 1}-${date}`;
+
+  return (
+    <button
+      key={date}
+      className={`date-btn ${
+        selectedDate === date ? "active" : ""
+      }`}
+      onClick={() => navigate(`/taskboard/${formattedDate}`)}
+    >
+      {date}
+    </button>
+  );
+})}
         </div>
       </div>
 
