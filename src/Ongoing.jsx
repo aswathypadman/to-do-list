@@ -1,4 +1,5 @@
- import TaskCard from "./TaskCard";
+ import Heading from "./Heading";
+import TaskCard from "./TaskCard";
 
 const Ongoing = ({ ongoing, setOngoing, setCompleted }) => {
   const togglePause = (index) => {
@@ -14,9 +15,8 @@ const Ongoing = ({ ongoing, setOngoing, setCompleted }) => {
 
   return (
     <div>
-      <h5>Ongoing ({ongoing.length})</h5>
-
-      <div className="task-list">
+        <Heading>Ongoing ({ongoing.length})</Heading>
+                    <div className="task-list">
         {ongoing.map((task, index) => (
           <TaskCard key={index}>
             <p style={{ opacity: task.paused ? 0.5 : 1 }}>

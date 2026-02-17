@@ -1,5 +1,6 @@
  import React, { useState } from "react";
 import TaskCard from "./TaskCard";
+import Heading from "./Heading";
 
 const Activity = ({ tasks, setTasks, setOngoing,date }) => {
   const [newTask, setNewTask] = useState("");
@@ -28,8 +29,8 @@ const Activity = ({ tasks, setTasks, setOngoing,date }) => {
   };
 
   return (
-    <div>
-      <h5>Tasks({tasks.length})</h5>
+    <div >
+      <Heading>Task({tasks.length})</Heading>
 
       <div className="task-list">
         {tasks.map((task, index) => (

@@ -1,70 +1,155 @@
- body {
-  font-family: Arial, sans-serif;
+ /* Global */
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #2e2a47, #3f3a61);
+  color: #f5f5f5;
 }
 
+/* Navigation Bar */
+.navbar {
+  background: #3a3560;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #c084fc;
+}
+
+/* Wrapper */
 .calendar-wrapper {
   display: flex;
-  gap: 30px;
-  padding: 30px;
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+  animation: fadeIn 0.6s ease-in;
 }
 
+/* Calendar Box */
 .calendar-box {
-  border: 2px solid purple;
-  padding: 20px;
-  width: 380px;
+  background: #3b365d;
+  border-radius: 16px;
+  padding: 25px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: 0.3s ease;
 }
 
+.calendar-box:hover {
+  transform: translateY(-4px);
+}
+
+/* Header */
 .calendar-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .calendar-header select,
 .calendar-header input {
-  padding: 6px;
+  padding: 8px;
   font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  background: #514b7a;
+  color: white;
+  transition: 0.3s ease;
 }
 
+.calendar-header select:hover,
+.calendar-header input:hover {
+  background: #625c92;
+}
+
+/* Grid */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 10px;
 }
 
+/* Day Names */
 .day-name {
   text-align: center;
-  font-weight: bold;
-  color: purple;
+  font-weight: 600;
+  color: #d8b4fe;
+  font-size: 13px;
 }
 
+/* Date Buttons */
 .date-btn {
   padding: 12px;
   border-radius: 10px;
   border: none;
-  background-color: #f0f0f0;
+  background-color: #514b7a;
+  color: white;
   cursor: pointer;
   font-size: 14px;
+  transition: all 0.25s ease;
 }
 
 .date-btn:hover {
-  background-color: #d9c3e8;
+  background-color: #7c6ee6;
+  transform: scale(1.08);
 }
 
+/* Active Date */
 .date-btn.active {
-  background-color: purple;
-  color: white;
+  background-color: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
 }
 
+/* Notes Box */
 .notes-box {
-  border: 2px solid purple;
-  padding: 20px;
-  width: 300px;
+  background: #3b365d;
+  border-radius: 16px;
+  padding: 25px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .notes-box textarea {
   width: 100%;
   height: 260px;
-  padding: 10px;
-  font-size: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #514b7a;
+  color: white;
+  resize: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

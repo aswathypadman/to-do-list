@@ -74,7 +74,12 @@ const Calendar = () => {
       className={`date-btn ${
         selectedDate === date ? "active" : ""
       }`}
-      onClick={() => navigate(`/taskboard/${formattedDate}`)}
+      onClick={() => {
+  setSelectedDate(date);
+  setTimeout(() => {
+    navigate(`/taskboard/${formattedDate}`);
+  }, 300);
+}}
     >
       {date}
     </button>

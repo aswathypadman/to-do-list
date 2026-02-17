@@ -1,6 +1,7 @@
  .task-card p {
    margin-bottom: 6px !important;
   font-size: 15px;
+  
 }
 
 .task-card {
@@ -12,6 +13,7 @@
 }
 
 .task-list {
+  
   display: flex;
   flex-direction: column;
   gap: 10px;   /* 👈 space between cards */
@@ -27,7 +29,7 @@
 }
 
 .start-btn {
-  background: #4caf50;
+  background: #980556;
   color: white;
   border: none;
   padding: 4px 10px;
@@ -37,7 +39,7 @@
 }
 
 .remove-btn {
-  background: #e53935;
+  background: #6e024e;
   color: white;
   border: none;
   padding: 4px 10px;
