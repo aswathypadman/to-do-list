@@ -10,15 +10,16 @@ const TaskBoard = () => {
   const [tasks, setTasks] = useState([]);
   const [ongoing, setOngoing] = useState([]);
   const [completed, setCompleted] = useState([]);
+  const [loaded, setLoaded] = useState(false); // important
 
-  // ✅ LOAD DATA WHEN PAGE LOADS OR DATE CHANGES
+  // 🔵 LOAD DATA
   useEffect(() => {
     if (!formattedDate) return;
 
-    const savedData = localStorage.getItem(formattedDate);
+    const saved = localStorage.getItem(formattedDate);
 
-    if (savedData) {
-      const parsed = JSON.parse(savedData);
+    if (saved) {
+      const parsed = JSON.parse(saved);
       setTasks(parsed.tasks || []);
       setOngoing(parsed.ongoing || []);
       setCompleted(parsed.completed || []);
@@ -27,27 +28,46 @@ const TaskBoard = () => {
       setOngoing([]);
       setCompleted([]);
     }
+
+    setLoaded(true);
   }, [formattedDate]);
 
-  // ✅ SAVE DATA WHEN STATE CHANGES
+  // 🔵 SAVE DATA (only after load)
   useEffect(() => {
-    if (!formattedDate) return;
-
-    const dataToSave = {
-      tasks,
-      ongoing,
-      completed,
-    };
+    if (!loaded) return;
 
     localStorage.setItem(
       formattedDate,
-      JSON.stringify(dataToSave)
+      JSON.stringify({ tasks, ongoing, completed })
     );
-  }, [tasks, ongoing, completed, formattedDate]);
+  }, [tasks, ongoing, completed, formattedDate, loaded]);
+   const clearAll = () => {
+  const confirmClear = window.confirm("Are you sure you want to clear all tasks?");
+  if (!confirmClear) return;
+
+  setTasks([]);
+  setOngoing([]);
+  setCompleted([]);
+  localStorage.removeItem(formattedDate);
+};
 
   return (
+    
     <div>
-      <h3>Tasks for {formattedDate}</h3>
+      <button
+  onClick={clearAll}
+  style={{
+    marginBottom: "20px",
+    padding: "8px 12px",
+    background: "#d04927",
+    color: "white",
+    border: "none",
+    cursor: "pointer"
+  }}
+>
+  Clear All Tasks
+</button>
+      <h3 style={{color:"white"}}>Tasks for {formattedDate}</h3>
 
       <div style={{ display: "flex", gap: "40px" }}>
         <Activity
