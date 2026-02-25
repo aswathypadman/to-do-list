@@ -3,14 +3,38 @@ import "./Calendar.css";
 import { useNavigate } from "react-router-dom";
 
 const Calendar = () => {
+  
   const [month, setMonth] = useState(1); // February
   const [year, setYear] = useState(2026);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [notes, setNotes] = useState("");
+  const monthKey = `${year}-${month + 1}`;
   const navigate = useNavigate()
   const nav=()=>{
     navigate("/TaskBoard");
 
   }
+
+  useEffect(() => {
+  const savedNotes = JSON.parse(localStorage.getItem("monthlyNotes")) || {};
+
+  if (savedNotes[monthKey]) {
+    setNotes(savedNotes[monthKey]);
+  } else {
+    setNotes("");
+  }
+}, [monthKey]);
+
+const handleNotesChange = (e) => {
+  const value = e.target.value;
+  setNotes(value);
+
+  const savedNotes = JSON.parse(localStorage.getItem("monthlyNotes")) || {};
+
+  savedNotes[monthKey] = value;
+
+  localStorage.setItem("monthlyNotes", JSON.stringify(savedNotes));
+};
   
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -89,10 +113,12 @@ const Calendar = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      {/* <div className="notes-box">
+       <div className="notes-box">
         <h3>Important Notes</h3>
-        <textarea placeholder="Write notes here..." />
-      </div> */}
+        <textarea placeholder="Write notes here..." 
+        value={notes}
+        onChange={handleNotesChange}/>
+      </div> 
 
     </div>
   );
